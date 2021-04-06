@@ -37,7 +37,7 @@ func TestProduct_Disable(t *testing.T) {
 
 func TestProduct_IsValid(t *testing.T) {
 	product := application.Product{}
-	product.ID = uuid.NewV4().String()
+	product.ID = uuid.Must(uuid.NewV4()).String()
 	product.Name = "Hello"
 	product.Status = application.DISABLED
 	product.Price = 10
@@ -60,7 +60,7 @@ func TestProduct_IsValid(t *testing.T) {
 
 func TestProduct_GetID(t *testing.T) {
 	product := application.Product{}
-	id := uuid.NewV4().String()
+	id := uuid.Must(uuid.NewV4()).String()
 	product.ID = id
 
 	require.Equal(t, id, product.ID)
